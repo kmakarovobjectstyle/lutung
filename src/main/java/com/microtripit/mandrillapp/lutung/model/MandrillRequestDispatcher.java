@@ -8,10 +8,13 @@ import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.config.ConnectionConfig;
+import org.apache.http.conn.ConnectionKeepAliveStrategy;
 import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
 import com.microtripit.mandrillapp.lutung.logging.Logger;
@@ -61,7 +64,14 @@ public final class MandrillRequestDispatcher {
 				.setSocketTimeout(SOCKET_TIMEOUT_MILLIS)
 				.setConnectTimeout(CONNECTION_TIMEOUT_MILLIS)
 				.setConnectionRequestTimeout(CONNECTION_TIMEOUT_MILLIS).build();
-		httpClient = HttpClients.custom().setUserAgent("/Lutung-0.1")
+		httpClient = HttpClients.custom()
+				.setKeepAliveStrategy(new ConnectionKeepAliveStrategy() {
+					@Override
+					public long getKeepAliveDuration(HttpResponse httpResponse, HttpContext httpContext) {
+						return 1;
+					}
+				})
+				.setUserAgent("/Lutung-0.1")
 				.setDefaultRequestConfig(defaultRequestConfig)
 				.setConnectionManager(connexionManager).useSystemProperties()
 				.build();

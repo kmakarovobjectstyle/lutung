@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mandrillapp.wrapper.lutung</groupId>
-    <artifactId>lutung</artifactId>
-    <version>0.0.9-SNAPSHOT</version>
+    <artifactId>lutung-kontur</artifactId>
+    <version>0.0.9</version>
     <name>lutung</name>
     <description>Mandrill API Client for Java</description>
     <url>https://github.com/rschreijer/lutung</url>
