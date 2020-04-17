@@ -7,7 +7,7 @@
     <version>0.0.9</version>
     <name>lutung</name>
     <description>Mandrill API Client for Java</description>
-    <url>https://github.com/rschreijer/lutung</url>
+    <url>https://github.com/konturio/lutung</url>
     <inceptionYear>2013</inceptionYear>
     <organization>
         <name>Microtrip.it</name>
@@ -41,10 +41,34 @@
 
     <!-- Scm release info -->
     <scm>
-        <connection>scm:git:git://github.com/rschreijer/lutung.git</connection>
-        <developerConnection>scm:git:git@github.com:rschreijer/lutung.git</developerConnection>
-        <url>http://github.com/rschreijer/lutung</url>
+        <connection>scm:git:git://github.com/konturio/lutung.git</connection>
+        <developerConnection>scm:git:git@github.com:konturio/lutung.git</developerConnection>
+        <url>https://github.com/konturio/lutung</url>
     </scm>
+    <repositories>
+        <repository>
+            <id>kontur</id>
+            <url>https://nexus.kontur.io/repository/common/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>kontur</id>
+            <url>https://nexus.kontur.io/repository/common/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <plugins>
@@ -128,17 +152,14 @@
     </profiles>
 
     <distributionManagement>
-        <!-- Sonatype repo info -->
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus snapshot repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Sonatype Nexus release repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>kontur-releases</id>
+            <url>https://nexus.kontur.io/repository/common-releases/</url>
         </repository>
+        <snapshotRepository>
+            <id>kontur-snapshots</id>
+            <url>https://nexus.kontur.io/repository/common-snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <dependencies>
