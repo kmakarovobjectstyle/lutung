@@ -47,7 +47,8 @@ public final class MandrillRequestDispatcher {
 	 * The value is expressed in milliseconds.
 	 * */
 	public static int CONNECTION_TIMEOUT_MILLIS = 0;
-	
+
+	public static int KEEP_ALIVE_MILLIS = 1000;
 	
 	private static CloseableHttpClient httpClient;
 	private static PoolingHttpClientConnectionManager connexionManager;
@@ -64,7 +65,7 @@ public final class MandrillRequestDispatcher {
 				.setKeepAliveStrategy(new ConnectionKeepAliveStrategy() {
 					@Override
 					public long getKeepAliveDuration(HttpResponse httpResponse, HttpContext httpContext) {
-						return 1;
+						return KEEP_ALIVE_MILLIS;
 					}
 				})
 				.setUserAgent("/Lutung-0.1")
