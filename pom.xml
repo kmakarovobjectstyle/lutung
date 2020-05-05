@@ -45,30 +45,6 @@
         <developerConnection>scm:git:git@github.com:konturio/lutung.git</developerConnection>
         <url>https://github.com/konturio/lutung</url>
     </scm>
-    <repositories>
-        <repository>
-            <id>kontur</id>
-            <url>https://nexus.kontur.io/repository/common/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>kontur</id>
-            <url>https://nexus.kontur.io/repository/common/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
 
     <build>
         <plugins>
@@ -153,12 +129,12 @@
 
     <distributionManagement>
         <repository>
-            <id>kontur-releases</id>
-            <url>https://nexus.kontur.io/repository/common-releases/</url>
+            <id>pdc-kontur-releases</id>
+            <url>http://devapps.pdc.org/nexus/content/repositories/kontur-release/</url>
         </repository>
         <snapshotRepository>
-            <id>kontur-snapshots</id>
-            <url>https://nexus.kontur.io/repository/common-snapshots/</url>
+            <id>pdc-kontur-snapshots</id>
+            <url>http://devapps.pdc.org/nexus/content/repositories/kontur-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
 
